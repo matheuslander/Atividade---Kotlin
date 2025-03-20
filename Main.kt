@@ -1,39 +1,29 @@
 fun main() {
-    val produto1 = Produto("Arroz", "Alimentos", 20.0, 50)
-    val produto2 = Produto("Sabão", "Limpeza", 5.0, 100)
-    val produto3 = Produto("Leite", "Bebidas", 6.0, 200)
+    executarExercicios()
+    mercados()
+}
 
-    produto1.aplicarDesconto(10.0)
-    println("Preço com desconto: ${produto1.preco}")
+fun executarExercicios() {
+    ex1()
+    ex2()
+    ex3(2, 4)
+    ex4(10,5)
+    ex4(100, 10)
+    ex4(1000,100)
+    ex4(1, 7)
+}
 
-    produto2.adicionarEstoque(20)
-    println("Novo estoque de ${produto2.nome}: ${produto2.estoque}")
+fun mercados() {
 
-    val produtos = listOf(produto1, produto2, produto3)
-    for (produto in produtos) {
-        println("Nome: ${produto.nome}, Categoria: ${produto.categoria}, Preço: ${produto.preco}, Estoque: ${produto.estoque}")
-        
+    val mercados = listOf(
+        Mercado(nome = "Mercado do Bairro", localizacao = "Bairro A", numeroDeFuncionarios = 15, estoque = mutableMapOf("Arroz" to 200, "Feijão" to 100)),
+        Mercado(nome = "Supermercado Central", localizacao = "Centro", numeroDeFuncionarios = 30, estoque = mutableMapOf("Arroz" to 50, "Feijão" to 200)),
+        Mercado(nome = "Mini Mercado", localizacao = "Rua X", numeroDeFuncionarios = 5, estoque = mutableMapOf("Arroz" to 80, "Feijão" to 120))
+    )
+
+    for (mercado in mercados) {
+        mercado.imprimirAtributos()
     }
-    val item1 = Item("Arroz", "Alimentos", 20.0, 50)
-    val item2 = Item("Sabão", "Limpeza", 5.0, 100)
-    val item3 = Item("Leite", "Bebidas", 6.0, 200)
-    val item4 = Item("Açúcar", "Alimentos", 10.0, 80)
-    val item5 = Item("Detergente", "Limpeza", 3.0, 150)
-    val item6 = Item("Cerveja", "Bebidas", 15.0, 300)
-
-    item1.aplicarDesconto(10.0)
-    item2.adicionarEstoque(20)
-
-    val itens = listOf(item1, item2, item3, item4, item5, item6)
-
-    for (item in itens) {
-        println("Nome: ${item.nome}, Categoria: ${item.categoria}, Preço: ${item.preco}, Estoque: ${item.estoque}")
-    }
-    println(ex1())
-    println(ex2())
-    println(ex3(2, 4))
-    println(ex4(100, 10))
-    println(ex4(1,7))
 }
 
 // 1
@@ -78,6 +68,6 @@ fun ex4(a: Int, b: Int): Int {
     } else if (a in 1..9) {
         return a * b
     } else {
-        return 0
-    }
+        return 0
+    }
 }
